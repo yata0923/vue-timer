@@ -31,6 +31,7 @@ export default defineComponent({
     this.time();
     setInterval(this.time, 1000);
     this.audio = new Audio("./alarm.mp3");
+    this.audio.loop = true;
   },
 
   methods: {
@@ -42,6 +43,7 @@ export default defineComponent({
     start: function () {
       if (this.count > 0 && this.started === false) {
         this.timer = setInterval(this.countDown, 1000);
+        this.audio.currentTime = 0;
         this.started = true;
       }
     },
